@@ -1,0 +1,70 @@
+@use "../styles" as *;
+
+.searchArea {
+  @include commonBlock($align: flex-start);
+  gap: 1em;
+
+  form {
+    @include commonBlock($direction:row);
+
+    input {
+      @include commonInput($width:80%);
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    button {
+      @include commonBtn($width:20%);
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      height: 100%;
+
+
+      &:disabled {
+        cursor: default;
+        background-color: $lightBackgroundColor;
+      }
+    }
+  }
+
+  &__locations {
+    @include commonBlock($width:80%, $align: flex-start);
+    position: absolute;
+    top: 70%;
+    font-size: 1.135em;
+    padding: 2.5%;
+    z-index: 50;
+    background-color: $lightBackgroundColor;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &__locations__item {
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s linear;
+
+    &:hover {
+      background-color: $hoverBackgroundColor;
+    }
+  }
+
+  &__locationBtn {
+    @include commonBlock($direction: row, $width: auto);
+    gap: 1em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1em;
+    transition: all 0.3s linear;
+
+    &:hover {
+      color: $btnFontColor;
+    }
+
+    img {
+      width: 10%;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use "../styles" as *;
+
+.weatherBlock {
+  &__titleBlock {
+    @include commonBlock;;
+
+    h2 {
+      font-size: 1.6em;
+      line-height: 1.5;
+    }
+  }
+
+  &__weather {
+    @include commonBlock($direction: row);
+
+    @media screen and (max-device-width: 481px){
+      @include commonBlock();
+      gap: 6em;
+    }
+
+    &__leftBlock {
+      @include commonBlock($width:25%);
+      font-size: 1.4em;
+
+      @media screen and (max-device-width: 481px){
+        @include commonBlock($width:45%);
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+        //border: 1px solid grey;
+        background-color: $standartBackgroundColor;
+      }
+    }
+
+    &__rightBlock {
+      @include commonBlock($width:55%);
+      gap: 1.8em;
+      font-size: 1.4em;
+
+      @media screen and (max-device-width: 1025px){
+        @include commonBlock($width:60%);
+      }
+
+      @media screen and (max-device-width: 769px){
+        @include commonBlock($width:65%);
+      }
+
+      &__info {
+        @include commonBlock($direction: row, $justify:flex-start, $align: flex-end);
+        gap:1em;
+
+        &__mainImg {
+          width: 10%;
+          object-fit: cover;
+        }
+
+        &__addImg {
+          width: 15%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

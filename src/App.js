@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+import WeatherBlock from "./components/WeatherBlock";
+import AnimationBlock from "./components/AnimationBlock";
+import Header from "./components/Header";
+import SearchArea from "./components/SearchArea";
+import Footer from "./components/Footer";
+
 
 function App() {
+    const [weatherData, setWeatherData] = useState();
+    const [isLoading, setIsLoading]= useState(false);
+    const [isError, setIsError] = useState(false);
+
+    const getMainBlock = ()=> {
+        if(isLoading){
+            return  <AnimationBlock/>
+        }
+        if(isError){
+            return  <h3>Oops.. Some error</h3>
+        }
+        if(!weatherData){
+            return  <h3>No data yet</h3>
+        }
+
+        return <WeatherBlock weatherData={weatherData} />
+    }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <div className="container">
+            <Header/>
+            <main className="main">
+                <SearchArea
+                    setWeatherData={setWeatherData}
+                    setIsLoading={setIsLoading}
+                    setIsError={setIsError}
+                />
+                <div className="main__central">
+                    {getMainBlock()}
+                </div>
+            </main>
+            <Footer/>
+        </div>
     </div>
   );
 }
