@@ -55,7 +55,12 @@ code {
     border-radius: 30px;
     color: $standartFontColor;
     padding: 5%;
-    min-height: 85vh;
+    min-height: 90vh;
+
+    @media screen and (max-device-width: 481px){
+      min-height: 85vh;
+    }
+
   }
 
   .header {
