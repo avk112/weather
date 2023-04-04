@@ -57,7 +57,7 @@ code {
     padding: 5%;
     min-height: 90vh;
 
-    @media screen and (max-device-width: 481px){
+    @media screen and (max-device-width: 769px){
       min-height: 85vh;
     }
 
@@ -85,7 +85,7 @@ code {
     @include commonBlock;
     gap: 2em;
 
-    @media screen and (max-device-width: 481px){
+    @media screen and (max-device-width: 769px){
       gap: 6em;
     }
   }
