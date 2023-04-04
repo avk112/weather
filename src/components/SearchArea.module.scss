@@ -37,6 +37,11 @@
     background-color: $lightBackgroundColor;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+
+    @media screen and (max-device-width: 481px){
+      font-size: 1.5em;
+      gap: 0.8em;
+    }
   }
 
   &__locations__item {
