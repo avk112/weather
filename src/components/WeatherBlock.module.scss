@@ -13,7 +13,7 @@
   &__weather {
     @include commonBlock($direction: row);
 
-    @media screen and (max-device-width: 769px){
+    @media screen and (max-device-width: $tablet){
       @include commonBlock();
       gap: 6em;
     }
@@ -22,7 +22,7 @@
       @include commonBlock($width:25%);
       font-size: 1.4em;
 
-      @media screen and (max-device-width: 769px){
+      @media screen and (max-device-width: $tablet){
         @include commonBlock($width:45%);
       }
 
@@ -40,11 +40,11 @@
       gap: 1.8em;
       font-size: 1.4em;
 
-      @media screen and (max-device-width: 1025px){
+      @media screen and (max-device-width: $notepad){
         @include commonBlock($width:60%);
       }
 
-      @media screen and (max-device-width: 769px){
+      @media screen and (max-device-width: $tablet){
         @include commonBlock($width:65%);
       }
 
