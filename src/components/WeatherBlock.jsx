@@ -6,11 +6,14 @@ import humidity from "../image/humidity.png";
 import classes from "./WeatherBlock.module.scss";
 
 const WeatherBlock = ({weatherData}) => {
+    const newDate = new Date(weatherData?.location?.localtime);
+    const date = newDate.toLocaleDateString("en-GB",{ month:"long", weekday:"long", day:"numeric", hour: "2-digit", hour12:false, minute:"2-digit"});
+
     return (
         <>
             <div className={classes.weatherBlock__titleBlock}>
                 <h2>{weatherData.location?.name}, {weatherData.location?.country}</h2>
-                <h3>{weatherData.location?.localtime.replace(/\-/g, ".").replace(/\s/, ", ")} </h3>
+                <h3>{date}</h3>
             </div>
             <div className={classes.weatherBlock__weather}>
                 <div className={classes.weatherBlock__weather__leftBlock}>
